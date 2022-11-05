@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.navContainer {
+  background-color: rgb(82, 77, 77);
+  max-height: 2.5em;
+}
+
+.navLeft {
+  display: flex;
+}
+
+.logo {
+  display: flex;
+  margin-left: 0.5em;
+  opacity: 65%;
+  height: 2.5em;
+}
+
+.logo-img {
+  border-radius: 20%;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 29px;
+}
+
+.nav-item {
+  margin: 0 10px;
+  font-family: "Press Start 2P", cursive;
+  color: #a8a8a8;
+  font-size: 10px;
+  padding: 5px;
+  position: relative;
+  transition: filter 0.3s;
+}
+
+.nav-item:hover {
+  filter: brightness(1.3);
+}
+
+.nav-item::after {
+  content: "";
+  border-bottom: 5px solid rgb(204, 203, 203);
+  width: 100%;
+  position: absolute;
+  top: 25px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.active .nav-item::after,
+.nav-item:hover::after {
+  opacity: 1;
+}
+
+.navRight {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: -28px;
+  justify-content: flex-end;
+  margin-left: 100rem;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.nav-subItem-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  background-color: rgba(68, 64, 64, 0.836);
+  height: 85px;
+  visibility: hidden;
+  display: none;
+  left: -5px;
+  top: 20px;
+}
+
+button:hover .nav-subItem-container {
+  visibility: visible;
+  display: flex;
+  position: fixed;
+}
+
+.nav-subItem {
+  position: relative;
+  margin: 12px 8px;
+  font-size: 9px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #a8a8a8;
+}
