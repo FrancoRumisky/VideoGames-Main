@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import arcade from "../../image/32840532(1).jpg";
 import flecha from "../../image/flechaHome.png";
 import "../LandingPage/LandingPage.css";
