@@ -1,0 +1,116 @@
+.containerInputs {
+  display: flex;
+  width: 216px;
+  position: relative;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  right: -1532px;
+  color: white;
+  margin-top: 106px;
+  align-items: flex-start;
+}
+
+.containerInputs div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.containerInputs input {
+  width: 207px;
+}
+
+.containerInputs select {
+  width: 215px;
+}
+.false {
+  position: relative;
+  transition: 0.5s;
+  color:red;
+  background-color: rgb(82, 77, 77);
+  margin-top: 15px;
+  margin-left: 45px;
+  padding: 7px;
+  border-radius: 2px;
+}
+
+
+.true {
+  color: white;
+  background-color: rgb(82, 77, 77);
+  margin-top: 15px;
+  margin-left: 45px;
+  padding: 7px;
+  border-radius: 2px;
+}
+
+.preview {
+  position: absolute;
+  top: 106px;
+  left: 299px;
+  color: white;
+}
+
+.title {
+  font-family: "Press Start 2P", cursive;
+  font-size: x-large;
+
+  margin-top: 40px;
+}
+
+.name {
+  font-family: "Press Start 2P", cursive;
+  font-size: x-large;
+
+  margin-top: 40px;
+}
+
+.rating {
+  margin-bottom: 20px;
+  width: max-content;
+  font-family: "VT323", monospace;
+  font-size: 18px;
+}
+
+.image {
+  width: 1050px;
+  border-radius: 7px;
+  height: 602px;
+  object-fit: cover;
+}
+
+.released,
+.platform,
+.genre {
+  font-family: "VT323", monospace;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 18px;
+  border-bottom: 1px solid red;
+  width: 500px;
+  padding: 15px 0;
+}
+
+.description {
+  font-family: "VT323", monospace;
+  font-size: x-large;
+  position: relative;
+  width: 1050px;
+}
+
+.btnDelete {
+  width: max-content;
+  border: 1px solid white;
+  border-radius: 2px;
+  margin: 0px 2px;
+  padding: 6px;
+}
+
+.btnDelete button {
+  color: white;
+}
+
+.error {
+  color: red;
+}

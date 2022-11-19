@@ -1,0 +1,31 @@
+.container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  margin-top: 40px;
+  font-family: "VT323", monospace;
+  font-size: 30px;
+}
+
+.imageContainer {
+  background-color: #00000099;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  margin-top: 100px;
+  height: 207px;
+}
+
+.imageContainer img:not(.sequelize) {
+  width: 203px;
+  margin: 0 40px;
+  object-fit: contain;
+}
+
+.sequelize {
+  width: 280px;
+  margin: 0 40px;
+}

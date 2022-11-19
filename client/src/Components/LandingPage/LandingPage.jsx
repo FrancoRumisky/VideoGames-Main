@@ -4,7 +4,7 @@ import arcade from "../../image/32840532(1).jpg";
 import flecha from "../../image/flechaHome.png";
 import "../LandingPage/LandingPage.css";
 
-function LandingPage(props) {
+function LandingPage() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -23,11 +23,27 @@ function LandingPage(props) {
         </Link>
         <span className="tag-home">HOME</span>
 
+        <a
+          href="https://www.linkedin.com/in/franco-rumisky-882b2b241/"
+          target="_blank"
+        >
+          <button className="button-linkedin"></button>
+        </a>
+        <span className="tag-linkedin">Linkedin</span>
+
+        <a
+          href="mailto:framqoo@gmail.com?Subject=Hola,%20estas%20disponible%20para%20comenzar%20manaña?!"
+          target="_blank"
+        >
+          <button className="button-gmail"></button>
+        </a>
+        <span className="tag-gmail">Gmail</span>
+
         <div className="iframe-container">
           <iframe
             width="524"
             height="380"
-            src="https://www.youtube.com/embed/FWAoaoHDeM0?&autoplay=1&start=9&rel=0&showinfo=0"
+            src="https://www.youtube.com/embed/FWAoaoHDeM0?&autoplay=1&start=9&rel=0&autohide=1&controls=0&showinfo=0&iv_load_policy=3&modestbranding=1"
             title="YouTube video player"
             frameBorder="1"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -1,0 +1,23 @@
+@keyframes myAnim {
+  25% {
+    left: 30px;
+    visibility: visible;
+  }
+
+  75% {
+    right: 30px;
+    visibility: visible;;
+  }
+}
+
+.containerImg {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.img {
+  width: 25%;
+  position: relative;
+  animation: myAnim 1s ease 0s infinite normal backwards;
+}

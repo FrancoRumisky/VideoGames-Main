@@ -1,0 +1,49 @@
+.container {
+    position: relative;
+    left: 400px;
+    width: fit-content;
+}
+
+.titleContainer {
+  color: white;
+  margin-top: 40px;
+}
+
+.title {
+  font-family: "Press Start 2P", cursive;
+  font-size: x-large;
+}
+
+.ratingContainer {
+  color: white;
+  margin-bottom: 20px;
+  width: max-content;
+  font-family: "VT323", monospace;
+  font-size: 18px;
+}
+
+.info {
+  color: white;
+  font-family: "VT323", monospace;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+}
+
+.info span {
+  border-bottom: 1px solid red;
+  width: 500px;
+  padding: 15px 0;
+}
+
+.descriptionContainer {
+  color: white;
+  position: relative;
+  width: 1050px;
+}
+
+.description {
+  font-family: "VT323", monospace;
+  font-size: x-large;
+}
+

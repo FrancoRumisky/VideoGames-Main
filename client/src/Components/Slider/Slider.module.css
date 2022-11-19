@@ -1,0 +1,76 @@
+@keyframes btnAnt {
+  0% {
+    transform: translateX(-2px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(1px);
+    opacity: 1;
+  }
+}
+
+@keyframes btnSig {
+  0% {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(-1px);
+  }
+}
+
+.container {
+  display: flex;
+  height: 602px;
+  flex-direction: column;
+}
+
+.container button {
+  position: absolute;
+  height: 603px;
+  color: white;
+}
+
+.container:hover .btnAnt {
+  opacity: 1;
+  animation: btnAnt 1s ease 0s 1 normal forwards;
+}
+
+.container:hover .btnSig {
+  opacity: 1;
+  animation: btnSig 1s ease 0s 1 normal forwards;
+}
+
+.slide {
+  max-width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.75s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.btnAnt {
+  opacity: 0;
+  background: linear-gradient(to right, #00000079 0%, transparent 100%);
+  border-radius: 5px 0 0 5px;
+}
+
+.btnSig {
+  left: 1026px;
+  opacity: 0;
+  background: linear-gradient(to left, #00000079 0%, transparent 100%);
+  border-radius: 0 5px 5px 0;
+}
+
+.image {
+  width: 1050px;
+  border-radius: 7px;
+  height:602px;
+  object-fit: cover;
+}

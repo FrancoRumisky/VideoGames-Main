@@ -35,6 +35,7 @@
   padding: 5px;
   position: relative;
   transition: filter 0.3s;
+  z-index: 2000;
 }
 
 .nav-item:hover {

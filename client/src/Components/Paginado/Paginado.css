@@ -1,0 +1,23 @@
+.pagination-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin: 10px;
+  position: relative;
+  bottom: 15px;
+}
+
+.pagination {
+}
+
+.pagination a {
+  color: white;
+  padding: 0px 10px;
+}
+.pagination a.activo {
+  color: white;
+}
+.pagination a:hover:not(.activo) {
+  background-color: gray;
+}
