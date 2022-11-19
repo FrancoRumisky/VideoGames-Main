@@ -14,7 +14,8 @@ const mapDataAPI = (dataAPI) => {
         id: e.id,
         image: e.background_image,
         rating: e.rating,
-        genres: e.genres.map((g) => g),
+        generos: e.genres.map((g) => g),
+        plataformas: e.platforms.map(p=> p.platform.name)
       };
     }),
   };
@@ -39,26 +40,36 @@ router.get("/", async (req, res) => {
       const dataDB = await Videogame.findAll({
         where: {
           name: { [Op.iLike]: `%${name}%` },
-          include: { model: Genero },
         },
+        include: [
+          {
+            model: Genero,
+            attributes: ["name"],
+            through: { attributes: [] },
+          },
+        ],
       });
 
       const dataAPIName = await dataAPI(name);
+      const games = dataAPIName.map(e=>e.games)
 
-      const fullData = dataDB.concat(dataAPIName);
-      return res.send(fullData);
+      const fullData = dataDB.concat(games).flat();
+      res.send(fullData);
     } catch (e) {
-      console.log(e);
-      res.status(404).send(e);
+      res.status(404).json("Juego No Encontrado");
     }
   } else {
     try {
       const dataDB = await Videogame.findAll({ include: { model: Genero } });
 
-      const fullData = dataDB.concat(await dataAPI());
+      const data = await dataAPI()
+      const games =  data.map(e=> e.games)
+
+      const fullData = games.concat(dataDB).flat();
 
       res.json(fullData);
     } catch (e) {
+      console.log(e)
       res.status(500).send(e);
     }
   }
@@ -84,11 +95,11 @@ router.get("/:id", async (req, res) => {
           name: res.data.name,
           image: res.data.background_image,
           imageAdditional: res.data.background_image_additional,
-          description: res.data.description,
-          released: res.data.released,
+          descripcion: res.data.description_raw,
+          fecha_de_lanzamiento: res.data.released,
           rating: res.data.rating,
-          genres: res.data.genres.map((g) => g),
-          platforms: res.data.platforms.map((g) => g),
+          generos: res.data.genres.map((g) => g),
+          plataformas: res.data.platforms.map((g) => g),
         };
       });
 
@@ -108,6 +119,7 @@ router.post("/", async (req, res) => {
     rating,
     generos,
   } = req.body;
+
   if (name && descripcion && plataformas) {
     try {
       const gameFound = await Videogame.findAll({
@@ -115,7 +127,7 @@ router.post("/", async (req, res) => {
       });
 
       if (gameFound.length > 0) {
-        return res.status(404).send("Ya Existe Este Juego!");
+        return res.status(404).json("Ya Existe Este Juego!");
       }
 
       const newGame = await Videogame.create({
@@ -130,16 +142,16 @@ router.post("/", async (req, res) => {
         where: { name: generos },
       });
 
+
       newGame.addGenero(generosNewGame);
 
       res.json("Su juego se ha creado exitosamente!");
     } catch (e) {
       console.log(e);
-      console.log(e);
-      res.status(404).send("error en alguno de los datos provistos");
+      res.status(404).json("error en alguno de los datos provistos");
     }
   } else {
-    res.status(404).send("Faltan datos");
+    res.status(404).json("Faltan datos");
   }
 });
 

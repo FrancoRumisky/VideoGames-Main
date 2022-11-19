@@ -22,13 +22,13 @@ module.exports = (sequelize) => {
       type: DataTypes.DATEONLY,
     },
     rating: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.FLOAT(),
     },
     plataformas: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
     },
-  }),{
+  },{
     timestamps: false,
-  };
+  });
 };
