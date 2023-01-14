@@ -14,7 +14,7 @@ const BACKEND_SERVER =
 export function getAllVideogames() {
   return function (dispatch) {
     dispatch(loading());
-    return fetch(BACKEND_SERVER + "videogames")
+    return fetch(BACKEND_SERVER + "/videogames")
       .then((response) => response.json())
       .then((json) => {
         dispatch({ type: GET_ALL_VIDEOGAMES, payload: json });
@@ -23,7 +23,7 @@ export function getAllVideogames() {
 }
 export function getAllGenres() {
   return function (dispatch) {
-    return fetch(BACKEND_SERVER + "genres")
+    return fetch(BACKEND_SERVER + "/genres")
       .then((response) => response.json())
       .then((json) => {
         dispatch({ type: GET_ALL_GENERES, payload: json });
@@ -33,7 +33,7 @@ export function getAllGenres() {
 export function videoGameDetail(id) {
   return function (dispatch) {
     dispatch(loading());
-    return fetch(BACKEND_SERVER + "videogames/" + id)
+    return fetch(BACKEND_SERVER + "/videogames/" + id)
       .then((response) => response.json())
       .then((json) => {
         dispatch({ type: VIDEOGAME_DETAIL, payload: json });
@@ -44,7 +44,7 @@ export function videoGameDetail(id) {
 export function getByName(name) {
   return function (dispatch) {
     dispatch(loading());
-    return fetch(BACKEND_SERVER + `videogames?name=${name}`)
+    return fetch(BACKEND_SERVER + `/videogames?name=${name}`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({ type: GET_BY_NAME, payload: json });
@@ -81,7 +81,7 @@ export function filterByGenres(payload) {
 
 export function createVideogame(payload) {
   return function (dispatch) {
-    return fetch(BACKEND_SERVER + "videogames", {
+    return fetch(BACKEND_SERVER + "/videogames", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
