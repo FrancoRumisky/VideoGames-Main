@@ -3,8 +3,11 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME
+  DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
+
+const DB_PORT = process.env.DB_PORT || 5432;
+const DB_NAME = process.env.DB_NAME || "Videogames";
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
   logging: false, // set to console.log to see the raw SQL queries
