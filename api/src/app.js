@@ -19,8 +19,8 @@ server.use(
     origin: [
       "http://localhost:3000",
       "http://localhost:3001",
-      "https://videogamesapp-production.up.railway.app/",
-      "http://videogamesapp-production.up.railway.app/",
+      "https://videogamesapp-production.up.railway.app",
+      "http://videogamesapp-production.up.railway.app",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
