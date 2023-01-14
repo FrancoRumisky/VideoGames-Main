@@ -89,7 +89,8 @@ export default function rootReducer(state = initialState, action) {
     case FILTER_BY_GENRES:
       return {
         ...state,
-        gamesrendered: state.gamesrendered.filter(e => {
+         // eslint-disable-next-line
+        gamesrendered: state.gamesrendered.filter((e) => { 
           for(const g of e.generos){
             if(g.name === action.payload) return g
           }

@@ -11,7 +11,7 @@ import Slider from "../Slider/Slider";
 function CreateGame() {
   const dispatch = useDispatch();
   const { genres, games, loading } = useSelector((state) => state);
-  const regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+  const regexp = /(ftp|http|https):(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(|([\w#!:.?+=&%@!]))?/
 
   const [input, setInput] = useState({
     name: "",
