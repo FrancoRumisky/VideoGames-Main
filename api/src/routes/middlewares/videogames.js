@@ -14,8 +14,8 @@ const mapDataAPI = (dataAPI) => {
         id: e.id,
         image: e.background_image,
         rating: e.rating,
-        generos: e.genres.map((g) => g),
-        plataformas: e.platforms.map(p=> p.platform.name)
+        generos: e.genres?.map((g) => g),
+        plataformas: e.platforms?.map(p=> p.platform.name) 
       };
     }),
   };
@@ -36,6 +36,7 @@ const dataAPI = async (name = "", page = 1) => {
 router.get("/", async (req, res) => {
   const { name } = req.query;
   if (name) {
+    console.log(name)
     try {
       const dataDB = await Videogame.findAll({
         where: {
@@ -51,11 +52,13 @@ router.get("/", async (req, res) => {
       });
 
       const dataAPIName = await dataAPI(name);
+      
       const games = dataAPIName.map(e=>e.games)
 
       const fullData = dataDB.concat(games).flat();
       res.send(fullData);
     } catch (e) {
+      console.log(e)
       res.status(404).json("Juego No Encontrado");
     }
   } else {
@@ -118,6 +121,8 @@ router.post("/", async (req, res) => {
     fecha_de_lanzamiento,
     rating,
     generos,
+    image,
+    imageAdditional
   } = req.body;
 
   if (name && descripcion && plataformas) {
@@ -136,6 +141,8 @@ router.post("/", async (req, res) => {
         plataformas,
         fecha_de_lanzamiento,
         rating,
+        image,
+        imageAdditional
       });
 
       const generosNewGame = await Genero.findAll({

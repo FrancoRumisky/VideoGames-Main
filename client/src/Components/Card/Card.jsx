@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "../Card/Card.css";
 
-function Card( {image, name, generos,id} ) {
+function Card( {image, name, generos,id,} ) {
   return (
     <>
       <div className="container-card">

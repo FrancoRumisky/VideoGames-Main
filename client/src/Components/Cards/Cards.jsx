@@ -35,6 +35,15 @@ function Cards() {
     setCurrentPage(pageNumber);
   };
 
+  const previous = () =>{
+    if(currentPage > 1)
+    setCurrentPage(currentPage -1) 
+  }
+
+  const next = () =>{
+    if(currentPage < 7 )
+    setCurrentPage(currentPage +1) 
+  }
 
   const handleKeyDown = (e) => {
     if (e.keyCode === 13) {
@@ -84,6 +93,7 @@ function Cards() {
                   generos={e.generos.map((e) => e.name).join(",")}
                   key={e.id}
                   id={e.id}
+                  
                 />
               ))}
           </div>
@@ -93,6 +103,8 @@ function Cards() {
             gamesrendered={gamesrendered}
             paginado={paginado}
           />
+          <button onClick={previous}>---</button>
+          <button onClick={next}>...</button>
         </div>
       )}
     </>

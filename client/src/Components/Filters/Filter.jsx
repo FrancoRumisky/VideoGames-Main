@@ -19,12 +19,28 @@ function Filter(props) {
     rating: false,
   });
 
-  const [active, setActive] = useState();
-  const [activeGenre, setActiveGenre] = useState();
+  const [active, setActive] = useState([]);
+  const [activeGenre, setActiveGenre] = useState([]);
+  const [activeTipe, setActiveType] = useState([]);
+  let countFilter = activeGenre?.length + active?.length + activeTipe.length
 
   const onClickHandler = (prop) => {
     setIsOpen({ ...isOpen, [prop]: !isOpen[prop] });
   };
+
+  const reset = () => {
+    dispatch(getAllVideogames())
+  }
+
+  const seterActive = (arg) => {
+    if(!active.includes(arg)) setActive([arg])
+  }
+  const seterActiveGenre = (arg) => {
+    if(!activeGenre.includes(arg)) setActiveGenre([...activeGenre, arg])
+  }
+  const seterActiveType = (arg) => {
+    if(!activeTipe.includes(arg)) setActiveType([arg])
+  }
 
   const handleDispatch = (e) => {
     let arg = e.target.innerText;
@@ -44,7 +60,8 @@ function Filter(props) {
     <>
       <div className={style.filter_container}>
         <div className={style.title}>
-          <span>Filtros</span>
+          <span>Filtros ({countFilter})</span>
+          <button onClick={reset}>restablecer</button>
         </div>
         <br />
         <div className={style.selects}>
@@ -57,22 +74,22 @@ function Filter(props) {
           </button>
           {isOpen.tipo && (
             <ul>
-              <li onClick={(e) => dispatch(getAllVideogames())}>Todos</li>
+              <li onClick={(e) => reset()}>Todos</li>
               <li
                 onClick={(e) => {
                   handleDispatch(e);
-                  setActiveGenre("Creados");
+                  seterActiveType("Creados")
                 }}
-                className={activeGenre === "Creados" ? style.active : ""}
+                className={activeTipe.includes("Creados") ? style.active : ""}
               >
                 Creados
               </li>
               <li
                 onClick={(e) => {
                   handleDispatch(e);
-                  setActiveGenre("API");
+                  seterActiveType("API")
                 }}
-                className={activeGenre === "API" ? style.active : ""}
+                className={activeTipe.includes("API") ? style.active : ""}
               >
                 API
               </li>
@@ -90,18 +107,18 @@ function Filter(props) {
               <li
                 onClick={(e) => {
                   handleDispatch(e);
-                  setActive("A-Z");
+                  seterActive("A-Z");
                 }}
-                className={active === "A-Z" ? style.active : ""}
+                className={active.includes("A-Z") ? style.active : ""}
               >
                 A-Z
               </li>
               <li
                 onClick={(e) => {
                   handleDispatch(e);
-                  setActive("Z-A");
+                  seterActive("Z-A");
                 }}
-                className={active === "Z-A" ? style.active : ""}
+                className={active.includes("Z-A") ? style.active : ""}
               >
                 Z-A
               </li>
@@ -119,18 +136,18 @@ function Filter(props) {
               <li
                 onClick={(e) => {
                   handleDispatch(e);
-                  setActive("Mayor Valorado");
+                  setActive(["Mayor Valorado"]);
                 }}
-                className={active === "Mayor Valorado" ? style.active : ""}
+                className={active.includes("Mayor Valorado") ? style.active : ""}
               >
                 Mayor Valorado
               </li>
               <li
                 onClick={(e) => {
                   handleDispatch(e);
-                  setActive("Menor Valorado");
+                  setActive(["Menor Valorado"]);
                 }}
-                className={active === "Menor Valorado" ? style.active : ""}
+                className={active.includes("Menor Valorado") ? style.active : ""}
               >
                 Menor Valorado
               </li>
@@ -151,9 +168,9 @@ function Filter(props) {
                     key={e.id}
                     onClick={(ev) => {
                       handleDispatch(ev);
-                      setActiveGenre(e.id);
+                      seterActiveGenre(e.id)
                     }}
-                    className={activeGenre === e.id ? style.active : ""}
+                    className={activeGenre.includes(e.id) ? style.active : ""}
                   >
                     {e.name}
                   </li>

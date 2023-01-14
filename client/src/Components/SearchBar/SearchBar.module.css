@@ -35,6 +35,7 @@
   transition: filter 0.3s;
 }
 
+
 .content_container input {
   position: relative;
   border-radius: 0 5px 5px 0;
@@ -57,8 +58,14 @@
   font-family: "VT323", monospace;
   font-size: 18px;
   height: 15px;
-  width: 169px;
+  width: 169px;  
+  box-shadow: -7px 1px 26px 3px rgba(189,0,181,0.83);
+-webkit-box-shadow: -7px 1px 26px 3px rgba(189,0,181,0.83);
+-moz-box-shadow: -7px 1px 26px 3px rgba(189,0,181,0.83);
+transition:box-shadow 0.2s cubic-bezier(0.03, 0.02, 1, 0.99);
 }
+
+
 
 .btn {
   background-color: rgb(87, 82, 82);

@@ -9,6 +9,10 @@
   font-size: 30px;
 }
 
+.container span {
+  text-shadow: 3px 3px 2px rgba(0, 0, 0, 1);
+}
+
 .imageContainer {
   background-color: #00000099;
   display: flex;

@@ -11,6 +11,7 @@ import Slider from "../Slider/Slider";
 function CreateGame() {
   const dispatch = useDispatch();
   const { genres, games, loading } = useSelector((state) => state);
+  const regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
 
   const [input, setInput] = useState({
     name: "",
@@ -23,10 +24,12 @@ function CreateGame() {
     plataformas: [],
   });
 
+  
   const [errors, setErrors] = useState({});
 
   function validate(input) {
     let errors = {};
+    
     if (!input.name) {
       errors.name = "Ingrese un nombre";
     }
@@ -38,6 +41,12 @@ function CreateGame() {
     }
     if (!input.rating || input.rating > 5 || input.rating < 0) {
       errors.rating = "El rating debe ser mayor a 0 y menor que 5";
+    }
+    if(!regexp.test(input.image)){
+      errors.image = "Ingrese una url valida"
+    }
+    if(!regexp.test(input.imageAdditional)){
+      errors.imageAdditional = "Ingrese una url valida"
     }
     if (!input.plataformas.length) {
       errors.plataformas = "Ingrese entre 1 y 5 plataformas";
@@ -57,6 +66,7 @@ function CreateGame() {
       descripcion: "",
       rating: "",
       image: "",
+      imageAdditional: "",
       generos: [],
       plataformas: [],
     });
@@ -123,10 +133,10 @@ function CreateGame() {
   }
 
   const imagenes = [
-    input.image
+    regexp.test(input.image)
       ? input.image
       : "https://c4.wallpaperflare.com/wallpaper/297/13/308/video-games-diablo-iii-diablo-tyrael-wallpaper-preview.jpg",
-    input.imageAdditional
+      regexp.test(input.imageAdditional)
       ? input.imageAdditional
       : "https://chemhelps.com/wp-content/uploads/2022/08/indir.jpeg",
   ];
@@ -145,12 +155,13 @@ function CreateGame() {
             <h1 className={style.title}>Create Videogame</h1>
             <br />
             <div>
-              <label>Nombre :</label>
+              <label>Nombre:</label>
               <input
                 type="text"
                 value={input.name}
                 name="name"
                 onChange={(e) => handleChange(e)}
+                autoComplete="off"
                 required
               />
               {errors.hasOwnProperty("name") ? (
@@ -159,35 +170,40 @@ function CreateGame() {
             </div>
 
             <div>
-              <label>Rating :</label>
+              <label>Rating:</label>
               <input
                 type="number"
                 value={input.rating}
                 name="rating"
                 onChange={(e) => handleChange(e)}
+                autoComplete="off"
                 required
               />
               {errors.rating && <p className={style.error}>{errors.rating}</p>}
             </div>
 
             <div>
-              <label>Image :</label>
+              <label>Image:</label>
               <input
                 type="url"
                 value={input.image}
                 name="image"
+                autoComplete="off"
                 onChange={(e) => handleChange(e)}
               />
+              {errors.image && <p className={style.error}>{errors.image}</p>}
             </div>
 
             <div>
-              <label>imageAdditional :</label>
+              <label>imageAdditional:</label>
               <input
                 type="url"
                 value={input.imageAdditional}
                 name="imageAdditional"
                 onChange={(e) => handleChange(e)}
+                autoComplete="off"
               />
+              {errors.imageAdditional && <p className={style.error}>{errors.imageAdditional}</p>}
             </div>
 
             <div>
@@ -210,7 +226,7 @@ function CreateGame() {
             </div>
 
             <div>
-              <label>Released :</label>
+              <label>Released:</label>
               <input
                 type="date"
                 value={input.fecha_de_lanzamiento}
@@ -242,12 +258,13 @@ function CreateGame() {
             </div>
 
             <div>
-              <label>Description :</label>
+              <label>Description:</label>
               <input
                 type="text"
                 value={input.descripcion}
                 name="descripcion"
                 onChange={(e) => handleChange(e)}
+                autoComplete="off"
                 required
               />
             </div>

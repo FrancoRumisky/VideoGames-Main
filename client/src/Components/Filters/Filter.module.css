@@ -1,79 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
-.filter_container{
-    position: absolute;
-    right: 138px;
-    top: 165px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-    width: 200px;
+@keyframes scale {
+  0% {
+    transform: scale(2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
-.title span{
-    color:#a8a8a8;
-    font-family: "Press Start 2P", cursive;
+.filter_container {
+  position: absolute;
+  right: 138px;
+  top: 165px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 200px;
 }
 
-.selects{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    width: 160px;
+.title{
+  display: flex;
+  flex-direction: column;
 }
 
-.selects button{
-    color: #a8a8a8;
-    padding: 20px 0;
-    margin: 5px 0;
-    border-top: 1px solid  rgb(82, 77, 77);
-    
-    font-family: "Press Start 2P", cursive;
+.title span {
+  color: #a8a8a8;
+  font-family: "Press Start 2P", cursive;
 }
 
-.selects button:hover{
-    filter: brightness(1.5);
+.title button{
+  color: #a8a8a8;
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px;
+  margin-top: 15px;
+  cursor: pointer;
 }
 
-.selects ul{
-    color: #a8a8a8;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    font-family: "Press Start 2P", cursive;
-    font-size: small;
-    
+.title button:hover{
+  filter: brightness(1.5);
 }
 
-
-.selects li{
-    padding: 7px 0;
-    
+.selects {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 160px;
 }
 
-.selects li:hover{
-    cursor:pointer;
-    color: rgba(255, 0, 0, 0.74);
+.selects button {
+  color: #a8a8a8;
+  padding: 20px 0;
+  margin: 5px 0;
+  border-top: 1px solid rgb(82, 77, 77);
+
+  font-family: "Press Start 2P", cursive;
 }
 
-
-.selects button:focus{
-    filter:brightness(1.5);
-    border-color: red;
+.selects button:hover {
+  filter: brightness(1.5);
 }
 
-.notFound{
-    font-family: "Press Start 2P", cursive;
-    color: #a8a8a8;
-    font-size: 25px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.selects ul {
+  color: #a8a8a8;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  font-family: "Press Start 2P", cursive;
+  font-size: small;
 }
 
-.active{
-    color:rgba(255, 0, 0, 0.74);
-   
+.selects li {
+  padding: 7px 0;
+}
+
+.selects li:hover {
+  cursor: pointer;
+  color: rgba(255, 0, 0, 0.74);
+}
+
+.selects button:focus {
+  filter: brightness(1.5);
+  border-color: red;
+}
+
+.notFound {
+  font-family: "Press Start 2P", cursive;
+  color: #a8a8a8;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.notFound span {
+    background: #7A6F7A;
+background: linear-gradient(to top, #7A6F7A 7%, #45324D 49%, #FFFCFC 86%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+animation: scale 1s ease 0s 1 normal forwards;
+}
+
+.active {
+  color: rgba(255, 0, 0, 0.74);
 }

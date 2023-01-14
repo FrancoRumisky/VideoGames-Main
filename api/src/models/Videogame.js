@@ -23,11 +23,29 @@ module.exports = (sequelize) => {
     },
     rating: {
       type: DataTypes.FLOAT(),
+      allowNull:true,
+      validate:{
+        isNumeric: true,
+        min:0,
+        max:5
+      }
     },
     plataformas: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
     },
+    image:{
+      type: DataTypes.STRING,
+      validate: {
+        isUrl:true,
+      }
+    },
+    imageAdditional:{
+      type: DataTypes.STRING,
+      validate: {
+        isUrl:true,
+      }
+    }
   },{
     timestamps: false,
   });

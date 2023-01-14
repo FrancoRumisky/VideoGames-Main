@@ -8,16 +8,24 @@
   bottom: 15px;
 }
 
-.pagination {
+.pagination{
+  margin-top: 26px;
 }
 
 .pagination a {
-  color: white;
   padding: 0px 10px;
 }
-.pagination a.activo {
-  color: white;
+.pagination a:focus img {
+  box-shadow: -1px 1px 52px -8px rgba(237,237,237,0.45) inset;
+-webkit-box-shadow: -1px 1px 52px -8px rgba(237,237,237,0.45) inset;
+-moz-box-shadow: -1px 1px 52px -8px rgba(237,237,237,0.45) inset;
+  border-radius: 10px;
 }
-.pagination a:hover:not(.activo) {
-  background-color: gray;
+.pagination a:hover:not(:focus) {
+  filter: brightness(1.5);
+}
+
+.pagination img{
+  width: 40px;
+  image-rendering:optimizeQuality;
 }
