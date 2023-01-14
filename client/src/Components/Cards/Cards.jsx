@@ -56,6 +56,7 @@ function Cards() {
       dispatch(getAllVideogames());
       dispatch(getAllGenres());
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   useEffect(() => {

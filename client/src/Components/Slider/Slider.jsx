@@ -10,6 +10,7 @@ function Slider({ imagenes }) {
   useEffect(() => {
     const timer = setTimeout(() => siguienteImagen(), 6000);
     return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [imagenActual]);
 
   if (!Array.isArray(imagenes) || cantidad === 0) return;

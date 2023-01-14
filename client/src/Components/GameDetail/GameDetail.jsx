@@ -35,6 +35,7 @@ function GameDetail(props) {
 
   useEffect(() => {
     dispatch(videoGameDetail(id));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

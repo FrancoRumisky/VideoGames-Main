@@ -70,6 +70,7 @@ function CreateGame() {
       generos: [],
       plataformas: [],
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   let platforms = [...new Set(games?.map((ele) => ele.plataformas).flat())];

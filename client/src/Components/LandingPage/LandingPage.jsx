@@ -26,6 +26,7 @@ function LandingPage() {
         <a
           href="https://www.linkedin.com/in/franco-rumisky-882b2b241/"
           target="_blank"
+          rel="noreferrer"
         >
           <button className="button-linkedin"></button>
         </a>
@@ -34,6 +35,7 @@ function LandingPage() {
         <a
           href="mailto:framqoo@gmail.com?Subject=Hola,%20estas%20disponible%20para%20comenzar%20manaña?!"
           target="_blank"
+          rel="noreferrer"
         >
           <button className="button-gmail"></button>
         </a>
