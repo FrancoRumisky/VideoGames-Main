@@ -20,7 +20,9 @@ server.use(
       "http://localhost:3000",
       "http://localhost:3001",
       "https://videogames-ghpz.onrender.com",
-      "http://videogames-ghpz.onrender.com"
+      "http://videogames-ghpz.onrender.com",
+      "https://video-games-main.vercel.app",
+      "http://video-games-main.vercel.app",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
