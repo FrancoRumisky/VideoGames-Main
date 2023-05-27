@@ -19,8 +19,7 @@ server.use(
     origin: [
       "http://localhost:3000",
       "http://localhost:3001",
-      "https://videogamesapp-production.up.railway.app",
-      "http://videogamesapp-production.up.railway.app",
+      "dpg-chp0r6qk728ivvvdsti0-a.oregon-postgres.render.com",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],

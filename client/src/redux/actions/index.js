@@ -92,8 +92,8 @@ export function createVideogame(payload) {
       .then((json) => dispatch({ type: CREATE_VIDEOGAME, payload: json }))
       .catch((err) => {
         dispatch({ type: CREATE_VIDEOGAME, payload: err });
-      })
-  } 
+      });
+  };
 }
 
 export function loading() {

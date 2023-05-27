@@ -5,7 +5,6 @@ import style from "./Slider.module.css";
 function Slider({ imagenes }) {
   const [imagenActual, setImagenActual] = React.useState(0);
   const cantidad = imagenes?.length;
- 
 
   useEffect(() => {
     const timer = setTimeout(() => siguienteImagen(), 6000);
@@ -22,8 +21,6 @@ function Slider({ imagenes }) {
   const anteriorImagen = () => {
     setImagenActual(imagenActual === 0 ? cantidad - 1 : imagenActual - 1);
   };
-
-  
 
   return (
     <div className={style.container}>
@@ -57,5 +54,7 @@ function Slider({ imagenes }) {
     </div>
   );
 }
+
+
 
 export default Slider;

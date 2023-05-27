@@ -10,8 +10,12 @@ const DB_PORT = process.env.DB_PORT || 5432;
 const DB_NAME = process.env.DB_NAME || "Videogames";
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
+  
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  dialectOptions:{
+    ssl:true,
+  }
 });
 const basename = path.basename(__filename);
 
