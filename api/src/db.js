@@ -17,6 +17,9 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
     ssl:true,
   }
 });
+
+
+
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
